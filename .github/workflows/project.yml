@@ -52,6 +52,7 @@ jobs:
                   host: ${{ secrets.SSH_HOST }}
                   username: ${{ secrets.SSH_USER }}
                   key: ${{ secrets.SSH_KEY }}
+                  port: ${{ secrets.SSH_PORT }}
                   script: |
                       cd /var/www/netology2
                       git pull
@@ -59,4 +60,3 @@ jobs:
                       pip install -r requirements.txt
                       python manage.py migrate
                       sudo systemctl restart netology2
-                      
