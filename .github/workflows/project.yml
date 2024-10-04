@@ -2,7 +2,7 @@ name: Netology CICD
 
 on:
     push:
-        branches: [video]
+        branches: [main]
 
 jobs:
     testing:
