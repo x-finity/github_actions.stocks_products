@@ -41,3 +41,22 @@ jobs:
 
             - name: Литинг кода
               run: flake8 logistic stocks_products --exclude migrations --ignore E501,F401
+    deploy:
+        name: Доставка кода
+        needs: testing
+        runs-on: ubuntu-latest
+        steps:
+            - name: Запуск скрипта обновления
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                      cd /var/www/netology2
+                      git pull
+                      source .venv/bin/activate
+                      pip install -r requirements.txt
+                      python manage.py migrate
+                      sudo systemctl restart netology2
+                      
