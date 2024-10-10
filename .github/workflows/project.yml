@@ -48,6 +48,11 @@ jobs:
         steps:
             - name: Запуск скрипта обновления
               uses: appleboy/ssh-action@master
+              env:
+                  PG_NAME: ${{ secrets.PG_NAME }}
+                  PG_USER: ${{ secrets.PG_USER }}
+                  PG_PASSWORD: ${{ secrets.PG_PASSWORD }}
+                  PG_HOST: ${{ secrets.PG_HOST }}
               with:
                   host: ${{ secrets.SSH_HOST }}
                   username: ${{ secrets.SSH_USER }}
