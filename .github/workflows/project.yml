@@ -60,4 +60,4 @@ jobs:
                       source .venv/bin/activate
                       pip install -r requirements.txt
                       python3 manage.py migrate
-                      sudo systemctl restart netology2
+                      sudo ./.restart_service.sh
