@@ -28,8 +28,6 @@ SECRET_KEY = 'django-insecure-nw^y+m^wmxza1asgk+)!ua2qx9)g+#v=6%76-9i8i(6eqiw94j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -90,6 +88,8 @@ DATABASES = {
         'PASSWORD': os.environ.get('PG_PASSWORD'),
     }
 }
+ALLOWED_HOSTS = ['xfinity.su', 'localhost', '127.0.0.1']
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
