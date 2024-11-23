@@ -65,4 +65,4 @@ jobs:
                       source .venv/bin/activate
                       pip install -r requirements.txt
                       python3 manage.py migrate
-                      echo "${{ secrets.SSH_PASSWORD }}" | sudo -S ./.restart_service.sh
+                      echo "${{ secrets.SSH_PASSWORD }}" | sudo -S /var/www/netology2/restart_service.sh
